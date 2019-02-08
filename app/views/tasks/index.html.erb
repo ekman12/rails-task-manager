@@ -1,5 +1,12 @@
-<% @tasks.each do |task| %>
-  <h2><%= link_to task.title, task_path(task) %></h2>
-  <p><%= task.details %></p>
-  <p><%= task.completed %></p>
-<% end %>
+<h1>Tasks to do</h1>
+  <ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= task.completed %>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to "DLT", task_path(task), method: :delete %>
+      </li>
+  <% end %>
+  </ul>
+
+<h3><%= link_to "+ Add a new task", task_path("new") %></h3>
